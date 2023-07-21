@@ -1,0 +1,14 @@
+.bord {
+  cursor: pointer;
+
+}
+
+span {
+  animation: blinker 1s infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
