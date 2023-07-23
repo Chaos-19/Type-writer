@@ -1,40 +1,38 @@
-var quote = "";
+const bord = document.querySelector('.bord');
+let index = 0;
+let randomQuote = '';
 
-
-function getRandomQuote() {
-  fetch('https://api.quotable.io/random')
-    .then((response) => {
-      if (!response.ok) throw Error(response.statusText)
-      return response.json()
-    })
-    .then((result) => quote = result)
-    .catch(error => console.log(error));
+async function getRandomQuote() {
+  try {
+    const response = await fetch('https://api.quotable.io/random');
+    if (!response.ok) throw Error(response.statusText);
+    const result = await response.json();
+    randomQuote = result.content;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 
-const bord = document.querySelector('.bord');
-let posi = 0;
+
+
+console.log(randomQuote);
+
 
 function writer() {
-  if (quote) {
+  
+  if (!randomQuote) {
     getRandomQuote();
   }
-  if (quote.length > posi) {
-    bord.innerHTML = `${word.substring(0, posi)
-      } <span>\u25AE</span>`
-    posi++;
-  } else {
-    quote = '';
+  
+  bord.innerHTML = `${randomQuote.substring(0,index)} <span>\u25AE</span>`
+  
+  if (randomQuote && randomQuote.length > index) {
+    setTimeout(write, 1000);
+    index++;
+  }else{
+    writer();
   }
-  console.log("hhhh");
 }
 
-
-setInterval(writer, 100)
-
-//setTimeout(writer,100);
-
-
-
-
-//console.log(getRandomQuote());
+writer();
