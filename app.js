@@ -16,7 +16,7 @@ async function getRandomQuote() {
 
 
 
-console.log(randomQuote);
+
 
 
 function writer() {
@@ -34,5 +34,5 @@ function writer() {
     writer();
   }
 }
-
+console.log(randomQuote);
 writer();
