@@ -36,7 +36,7 @@ function writer() {
     quoteContent = '';
     randomQuote = '';
     index = 0;
-    setTimeout(writer, 1500);
+    setTimeout(writer, 2500);
   } else {
     setTimeout(writer, 2000);
   }
