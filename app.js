@@ -40,7 +40,6 @@ window.addEventListener('load', writer);
 // find out the exact interval between each request  time 
 
 /*  
-
 async function checkResponseTime(testURL) {
 
   let time1 = performance.now();
@@ -51,3 +50,4 @@ async function checkResponseTime(testURL) {
   // for the purpose of this snippet example, some host with CORS response 
 responseTime = await checkResponseTime('https://api.quotable.io/random');
 })();
+*/
